@@ -1,9 +1,3 @@
-// URL de la API
-const apiURL = 'https://localhost:7223/api/Peliculas'; // Cambia esta URL por la de tu API
-
-// Selecciona el contenedor donde se renderizarán las películas
-const movieContainer = document.getElementById('movie-container');
-
 // Función para obtener y renderizar películas
 async function fetchMovies() {
     try {
@@ -40,7 +34,6 @@ async function fetchMovies() {
                     </div>
                 </div>
             `;
-            // Agrega la card al contenedor
             movieContainer.innerHTML += movieCard;
         });
 
@@ -51,23 +44,19 @@ async function fetchMovies() {
     }
 }
 
-// Asignar eventos a los botones después de renderizar las películas
-function assignFlipEvents() {
-    document.querySelectorAll('.ver-detalles').forEach(button => {
-        button.addEventListener('click', function(event) {
-            event.preventDefault(); // Evita la acción predeterminada del enlace
-            const cardInner = this.closest('.card-inner'); // Encuentra el contenedor de la card
-            cardInner.classList.add('flip'); // Agrega la clase flip para girar la card
-        });
+document.querySelectorAll('.ver-detalles').forEach(button => {
+    button.addEventListener('click', () => {
+        const cardInner = button.closest('.card-inner');
+        cardInner.classList.add('flip');
     });
+});
 
-    document.querySelectorAll('.volver').forEach(button => {
-        button.addEventListener('click', function() {
-            const cardInner = this.closest('.card-inner'); // Encuentra el contenedor de la card
-            cardInner.classList.remove('flip'); // Quita la clase flip para volver a la vista frontal
-        });
+document.querySelectorAll('.volver').forEach(button => {
+    button.addEventListener('click', () => {
+        const cardInner = button.closest('.card-inner');
+        cardInner.classList.remove('flip');
     });
-}
+});
 
 
 

@@ -158,21 +158,22 @@
                 <div class="card card-inner">
                     <div class="card-front">
                         <div class="card-body">
-                            <img src="/src/Foto6.jpeg" class="card-img-top" alt="Película 6">
-                            <h5 class="card-title">Título de Película 6</h5>
-                            <p class="card-text">Descripción breve de la película 6.</p>
-                            <a href="#" class="btn btn-primary ver-detalles">Ver detalles</a>
+                            <img src="/src/Foto1.jpg" class="card-img-top" alt="Película 1">
+                            <h5 class="card-title">Título de Película 1</h5>
+                            <p class="card-text">Descripción breve de la película 1.</p>
+                            <button class="btn btn-primary ver-detalles">Ver detalles</button>
                         </div>
                     </div>
                     <div class="card-back">
                         <div class="card-body">
-                            <h5 class="card-title">Detalles de Película 6</h5>
-                            <p class="card-text">Aquí se pueden mostrar detalles adicionales de la película 6.</p>
+                            <h5 class="card-title">Detalles de Película 1</h5>
+                            <p class="card-text">Aquí se pueden mostrar detalles adicionales de la película 1.</p>
                             <button class="btn btn-secondary volver">Volver</button>
                         </div>
                     </div>
                 </div>
             </div>
+            
             <!-- Agrega más cards aquí si es necesario -->
         </div>
     </div>
@@ -186,6 +187,8 @@
         document.querySelectorAll('.ver-detalles').forEach(button => {
             button.addEventListener('click', () => {
                 const card = button.closest('.card');
+                const cardInner = button.closest('.card-inner');
+                cardInner.classList.add('flip'); // Activa la clase flip para girar
                 card.querySelector('.card-front').style.display = 'none';
                 card.querySelector('.card-back').style.display = 'block';
             });
@@ -194,6 +197,8 @@
         document.querySelectorAll('.volver').forEach(button => {
             button.addEventListener('click', () => {
                 const card = button.closest('.card');
+                const cardInner = button.closest('.card-inner');
+                cardInner.classList.remove('flip'); // Quita la clase flip para volver a la vista frontal
                 card.querySelector('.card-front').style.display = 'block';
                 card.querySelector('.card-back').style.display = 'none';
             });

@@ -46,33 +46,34 @@ body {
     position: relative;
     width: 100%;
     height: 100%; /* Asegura que ocupe toda la altura del contenedor */
-    transition: transform 0.5s; /* Transición para la rotación */
-    transform-style: preserve-3d; /* Mantiene la perspectiva en 3D */
-    cursor: pointer; /* Cambia el cursor al pasar sobre la carta */
+    perspective: 1000px; /* Asegura la perspectiva 3D */
+    transition: transform 0.6s; /* Aumenta la duración para una animación más suave */
 }
 
 .card-front, .card-back {
-    position: absolute; /* Para que se superpongan correctamente */
+    position: absolute;
     width: 100%;
-    height: 100%; /* Asegura que ambas caras ocupen el mismo espacio */
-    backface-visibility: hidden; /* Oculta la parte trasera cuando no está en vista */
+    height: 100%;
+    backface-visibility: visible;
 }
 
 .card-front {
-    z-index: 2; /* Mantiene la cara frontal encima */
-    transform: rotateY(0deg); /* Estado inicial de la cara frontal */
+    transform: rotateY(0deg);
+    z-index: 2;
 }
 
 .card-back {
-    transform: rotateY(180deg); /* Estado inicial de la cara trasera */
-    display: flex; /* Flexbox para centrar el contenido */
-    flex-direction: column; /* Disposición en columna */
-    justify-content: center; /* Centrar verticalmente */
-    align-items: center; /* Centrar horizontalmente */
+    transform: rotateY(360deg);
+}
+
+/* Nueva clase para el contenido de la parte trasera */
+.card-back .card-body {
+    transform: rotateY(180deg); /* Rota el contenido de la parte trasera */
+    backface-visibility: visible; /* Oculta la parte trasera del contenido */
 }
 
 .card-inner.flip {
-    transform: rotateY(180deg); /* Gira la carta al hacer clic */
+    transform: rotateY(180deg);
 }
 
 .card-title {
