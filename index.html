@@ -9,14 +9,13 @@
     <!-- Enlace a archivo CSS personalizado -->
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Asegúrate de que las cards y sus imágenes se comporten correctamente */
         .card {
-            width: 100%; /* Asegúrate de que la card use el 100% de la columna */
-            overflow: hidden; /* Evita que el contenido se desborde */
+            width: 100%;
+            overflow: hidden;
         }
         .card-img-top {
-            width: 100%; /* Las imágenes ocuparán el 100% de la card */
-            height: auto; /* Mantiene la proporción de las imágenes */
+            width: 100%;
+            height: auto;
         }
     </style>
 </head>
@@ -46,135 +45,12 @@
         </div>
     </nav>
 
-    <!-- Espaciador para el navbar -->
     <div class="spacer" style="height: 70px;"></div>
 
-    <!-- Contenedor de películas -->
     <div class="container my-5">
         <h2 class="text-center">Catálogo de Películas</h2>
         <div class="row" id="movie-container">
-            <!-- Ejemplo de Cards -->
-            <div class="col-md-4 mb-4">
-                <div class="card card-inner">
-                    <div class="card-front">
-                        <div class="card-body">
-                            <img src="/src/Foto1.jpg" class="card-img-top" alt="Película 1">
-                            <h5 class="card-title">Título de Película 1</h5>
-                            <p class="card-text">Descripción breve de la película 1.</p>
-                            <a href="#" class="btn btn-primary ver-detalles">Ver detalles</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <div class="card-body">
-                            <h5 class="card-title">Detalles de Película 1</h5>
-                            <p class="card-text">Aquí se pueden mostrar detalles adicionales de la película 1.</p>
-                            <button class="btn btn-secondary volver">Volver</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card card-inner">
-                    <div class="card-front">
-                        <div class="card-body">
-                            <img src="/src/Foto2.jpeg" class="card-img-top" alt="Película 2">
-                            <h5 class="card-title">Título de Película 2</h5>
-                            <p class="card-text">Descripción breve de la película 2.</p>
-                            <a href="#" class="btn btn-primary ver-detalles">Ver detalles</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <div class="card-body">
-                            <h5 class="card-title">Detalles de Película 2</h5>
-                            <p class="card-text">Aquí se pueden mostrar detalles adicionales de la película 2.</p>
-                            <button class="btn btn-secondary volver">Volver</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card card-inner">
-                    <div class="card-front">
-                        <div class="card-body">
-                            <img src="/src/Foto3.jpg" class="card-img-top" alt="Película 3">
-                            <h5 class="card-title">Título de Película 3</h5>
-                            <p class="card-text">Descripción breve de la película 3.</p>
-                            <a href="#" class="btn btn-primary ver-detalles">Ver detalles</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <div class="card-body">
-                            <h5 class="card-title">Detalles de Película 3</h5>
-                            <p class="card-text">Aquí se pueden mostrar detalles adicionales de la película 3.</p>
-                            <button class="btn btn-secondary volver">Volver</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card card-inner">
-                    <div class="card-front">
-                        <div class="card-body">
-                            <img src="/src/Foto4.jpg" class="card-img-top" alt="Película 4">
-                            <h5 class="card-title">Título de Película 4</h5>
-                            <p class="card-text">Descripción breve de la película 4.</p>
-                            <a href="#" class="btn btn-primary ver-detalles">Ver detalles</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <div class="card-body">
-                            <h5 class="card-title">Detalles de Película 4</h5>
-                            <p class="card-text">Aquí se pueden mostrar detalles adicionales de la película 4.</p>
-                            <button class="btn btn-secondary volver">Volver</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card card-inner">
-                    <div class="card-front">
-                        <div class="card-body">
-                            <img src="/src/Foto5.jpeg" class="card-img-top" alt="Película 5">
-                            <h5 class="card-title">Título de Película 5</h5>
-                            <p class="card-text">Descripción breve de la película 5.</p>
-                            <a href="#" class="btn btn-primary ver-detalles">Ver detalles</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <div class="card-body">
-                            <h5 class="card-title">Detalles de Película 5</h5>
-                            <p class="card-text">Aquí se pueden mostrar detalles adicionales de la película 5.</p>
-                            <button class="btn btn-secondary volver">Volver</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card card-inner">
-                    <div class="card-front">
-                        <div class="card-body">
-                            <img src="/src/Foto1.jpg" class="card-img-top" alt="Película 1">
-                            <h5 class="card-title">Título de Película 1</h5>
-                            <p class="card-text">Descripción breve de la película 1.</p>
-                            <button class="btn btn-primary ver-detalles">Ver detalles</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <div class="card-body">
-                            <h5 class="card-title">Detalles de Película 1</h5>
-                            <p class="card-text">Aquí se pueden mostrar detalles adicionales de la película 1.</p>
-                            <button class="btn btn-secondary volver">Volver</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Agrega más cards aquí si es necesario -->
+            <!-- Las películas se cargarán dinámicamente aquí -->
         </div>
     </div>
 
@@ -182,27 +58,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        // Aquí puedes agregar tus scripts para manejar los eventos de las cards
-        document.querySelectorAll('.ver-detalles').forEach(button => {
-            button.addEventListener('click', () => {
-                const card = button.closest('.card');
-                const cardInner = button.closest('.card-inner');
-                cardInner.classList.add('flip'); // Activa la clase flip para girar
-                card.querySelector('.card-front').style.display = 'none';
-                card.querySelector('.card-back').style.display = 'block';
-            });
-        });
-
-        document.querySelectorAll('.volver').forEach(button => {
-            button.addEventListener('click', () => {
-                const card = button.closest('.card');
-                const cardInner = button.closest('.card-inner');
-                cardInner.classList.remove('flip'); // Quita la clase flip para volver a la vista frontal
-                card.querySelector('.card-front').style.display = 'block';
-                card.querySelector('.card-back').style.display = 'none';
-            });
-        });
-    </script>
+    <!-- Enlace al archivo JavaScript externo -->
+    <script src="script.js"></script>
 </body>
 </html>
