@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    background-color: #343a40;
+}
+
+.logo-img {
+    height: 40px;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #0056b3;
+    color: #ffffff !important;
+    border-radius: 4px;
+}
+
+#movie-container {
+    display: flex; /* Usar Flexbox */
+    flex-wrap: wrap; /* Permite el ajuste a la siguiente línea */
+    justify-content: space-between; /* Espaciado uniforme */
+    margin-top: 20px; /* Espacio superior para separar del título */
+}
+
+.card {
+    width: calc(33.333% - 20px); /* Ocupa un tercio menos el margen */
+    min-height: 600px; /* Aumenta la altura mínima para mostrar más contenido */
+    perspective: 1000px; /* Perspectiva para el efecto de rotación */
+    margin-bottom: 20px; /* Margen inferior para espacio entre filas */
+    overflow: hidden; /* Evita que el contenido se desborde */
+    transition: transform 0.2s; /* Transición para el efecto de elevación */
+}
+
+.card-title{
+    padding-top: 5%;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Eleva la tarjeta al hacer hover */
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%; /* Asegura que ocupe toda la altura del contenedor */
+    transition: transform 0.5s; /* Transición para la rotación */
+    transform-style: preserve-3d; /* Mantiene la perspectiva en 3D */
+    cursor: pointer; /* Cambia el cursor al pasar sobre la carta */
+}
+
+.card-front, .card-back {
+    position: absolute; /* Para que se superpongan correctamente */
+    width: 100%;
+    height: 100%; /* Asegura que ambas caras ocupen el mismo espacio */
+    backface-visibility: hidden; /* Oculta la parte trasera cuando no está en vista */
+}
+
+.card-front {
+    z-index: 2; /* Mantiene la cara frontal encima */
+    transform: rotateY(0deg); /* Estado inicial de la cara frontal */
+}
+
+.card-back {
+    transform: rotateY(180deg); /* Estado inicial de la cara trasera */
+    display: flex; /* Flexbox para centrar el contenido */
+    flex-direction: column; /* Disposición en columna */
+    justify-content: center; /* Centrar verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+}
+
+.card-inner.flip {
+    transform: rotateY(180deg); /* Gira la carta al hacer clic */
+}
+
+.card-back .btn-secondary {
+    margin-top: 10px; /* Espacio superior para el botón "Volver" */
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en columna */
+    justify-content: space-between; /* Distribuye el espacio entre ellos */
+    height: 100%; /* Asegura que ocupe toda la altura de la card */
+    padding: 15px; /* Espacio interior de la card */
+}
+
+.card-text {
+    margin-bottom: auto; /* Empuja el botón hacia el fondo */
+}
+
+.btn {
+    margin-top: auto; /* Empuja el botón hacia el fondo */
+}
+
+.card-img-top {
+    width: 100%; /* Las imágenes ocuparán el 100% de la card */
+    height: auto; /* Mantiene la proporción de las imágenes */
+}

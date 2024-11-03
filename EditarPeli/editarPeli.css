@@ -1,0 +1,68 @@
+/* Archivo de estilos personalizado */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Color de fondo para la página */
+}
+
+/* Fondo del navbar */
+.navbar {
+    background-color: #343a40; /* Color del navbar */
+}
+
+/* Estilo de la imagen del logo */
+.logo-img {
+    height: 40px;
+}
+
+/* Estilo de los enlaces del navbar */
+.nav-link {
+    color: #ffffff !important; /* Color blanco para el texto del navbar */
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover de los enlaces del navbar */
+.nav-link:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el mouse */
+    color: #ffffff !important; /* Mantiene el texto blanco en hover */
+    border-radius: 4px; /* Bordes redondeados en hover */
+}
+
+/* Espaciador para el navbar */
+.spacer {
+    height: 70px; /* Altura del espaciador para evitar superposición con el navbar */
+}
+
+/* Contenedor principal */
+.container {
+    margin-top: 20px; /* Margen superior para evitar superposición */
+}
+
+/* Estilos del formulario */
+h2 {
+    margin-bottom: 20px; /* Margen inferior para el título */
+}
+
+/* Estilo de los campos del formulario */
+.form-group label {
+    font-weight: bold; /* Texto en negrita para las etiquetas */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Color del botón */
+    border-color: #007bff; /* Color del borde del botón */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Color al pasar el mouse */
+    border-color: #0056b3; /* Color del borde al pasar el mouse */
+}
+
+/* Estilo para mensajes de error o éxito */
+#message {
+    margin-top: 20px; /* Margen superior para el mensaje */
+    font-weight: bold; /* Texto en negrita */
+}
+
+.form-check {
+    margin-bottom: 10px; /* Margen entre los checkboxes */
+}
