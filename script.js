@@ -51,22 +51,24 @@ async function fetchMovies() {
     }
 }
 
-document.querySelectorAll('.ver-detalles').forEach(button => {
-    button.addEventListener('click', function(event) {
-        event.preventDefault(); // Evita la acción predeterminada del enlace
-        const card = this.closest('.card'); // Encuentra la card más cercana
-        card.querySelector('.card-front').style.display = 'none'; // Oculta la cara frontal
-        card.querySelector('.card-back').style.display = 'block'; // Muestra la cara trasera
+// Asignar eventos a los botones después de renderizar las películas
+function assignFlipEvents() {
+    document.querySelectorAll('.ver-detalles').forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); // Evita la acción predeterminada del enlace
+            const cardInner = this.closest('.card-inner'); // Encuentra el contenedor de la card
+            cardInner.classList.add('flip'); // Agrega la clase flip para girar la card
+        });
     });
-});
 
-document.querySelectorAll('.volver').forEach(button => {
-    button.addEventListener('click', function() {
-        const card = this.closest('.card'); // Encuentra la card más cercana
-        card.querySelector('.card-front').style.display = 'block'; // Muestra la cara frontal
-        card.querySelector('.card-back').style.display = 'none'; // Oculta la cara trasera
+    document.querySelectorAll('.volver').forEach(button => {
+        button.addEventListener('click', function() {
+            const cardInner = this.closest('.card-inner'); // Encuentra el contenedor de la card
+            cardInner.classList.remove('flip'); // Quita la clase flip para volver a la vista frontal
+        });
     });
-});
+}
+
 
 
 

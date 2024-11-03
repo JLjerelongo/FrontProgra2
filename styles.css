@@ -38,10 +38,6 @@ body {
     transition: transform 0.2s; /* Transición para el efecto de elevación */
 }
 
-.card-title{
-    padding-top: 5%;
-}
-
 .card:hover {
     transform: translateY(-10px); /* Eleva la tarjeta al hacer hover */
 }
@@ -79,8 +75,17 @@ body {
     transform: rotateY(180deg); /* Gira la carta al hacer clic */
 }
 
-.card-back .btn-secondary {
-    margin-top: 10px; /* Espacio superior para el botón "Volver" */
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #343a40;
+    padding-top: 5%;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #6c757d;
+    margin-bottom: auto; /* Empuja el botón hacia el fondo */
 }
 
 .card-body {
@@ -91,15 +96,38 @@ body {
     padding: 15px; /* Espacio interior de la card */
 }
 
-.card-text {
-    margin-bottom: auto; /* Empuja el botón hacia el fondo */
-}
-
 .btn {
     margin-top: auto; /* Empuja el botón hacia el fondo */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #004080; /* Un azul más oscuro */
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #343a40; /* Un gris oscuro */
+    color: #ffffff;
 }
 
 .card-img-top {
     width: 100%; /* Las imágenes ocuparán el 100% de la card */
     height: auto; /* Mantiene la proporción de las imágenes */
+}
+
+/* Media Queries para responsividad */
+
+/* Para tabletas y pantallas medianas */
+@media (max-width: 992px) {
+    .card {
+        width: calc(50% - 20px); /* Ocupa la mitad del ancho */
+    }
+}
+
+/* Para dispositivos móviles */
+@media (max-width: 576px) {
+    .card {
+        width: 100%; /* Ocupa el ancho completo */
+    }
 }
