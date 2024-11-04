@@ -1,4 +1,4 @@
-const apiURL = "https://localhost:7054/api/Cine/ALLPELICULAS";
+const apiURL = "https://localhost:7054/api/Cine/peliculas2";
 const movieContainer = document.getElementById("movie-container");
 
 // Objeto de imágenes hardcodeadas
@@ -23,38 +23,40 @@ async function fetchMovies() {
 
         // Recorre cada película y crea una card
         movies.forEach(movie => {
-            // Obtener la imagen desde el objeto usando el título de la película
-            const movieImage = images[movie.tituloPelicula] || "https://via.placeholder.com/300x400"; // Imagen por defecto si no se encuentra
+            const movieImage = images[movie.tituloPelicula] || "https://via.placeholder.com/300x400";
             
+            const generos = movie.generos ? movie.generos.join(", ") : "Sin género";
+        
             const movieCard = `
                 <div class="col-md-4 mb-4">
-                <div class="card card-inner">
-                    <div class="card-front">
-                        <div class="card-body">
-                            <img src="${movieImage}" class="card-img-top" alt="${movie.tituloPelicula}">
-                            
+                    <div class="card card-inner">
+                        <div class="card-front">
+                            <div class="card-body">
+                                <img src="${movieImage}" class="card-img-top" alt="${movie.tituloPelicula}">
                                 <h5 class="card-title">${movie.tituloPelicula}</h5>
                                 <p class="card-text">
                                     <strong>Director:</strong> ${movie.director}<br>
-                                </p>
-                                <button class="btn btn-primary ver-detalles">Ver detalles</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <div class="card-body">
-                            <h5 class="card-title">Detalles de ${movie.tituloPelicula}</h5>
-                            <strong>Duración:</strong> ${movie.duracionMin} minutos<br>
-                            <strong>Clasificación:</strong> ${movie.clasificacion}<br>
-                            <strong>Estado:</strong> ${movie.estado}<br>
-                            <strong>País:</strong> ${movie.pais}<br>
-                            <button class="btn btn-secondary volver">Volver</button>
+                                    </p>
+                                    <button class="btn btn-primary ver-detalles">Ver detalles</button>
+                                    </div>
+                                    </div>
+                                    <div class="card-back">
+                                    <div class="card-body">
+                                    <h5 class="card-title">Detalles de ${movie.tituloPelicula}</h5>
+                                    <strong>Duración:</strong> ${movie.duracionMin} minutos<br>
+                                    <strong>Clasificación:</strong> ${movie.clasificacion}<br>
+                                    <strong>Estado:</strong> ${movie.estado}<br>
+                                    <strong>País:</strong> ${movie.pais}<br>
+                                    <strong>Géneros:</strong> ${generos}<br>
+                                    <button class="btn btn-secondary volver">Volver</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             `;
             movieContainer.innerHTML += movieCard;
         });
+        
 
         // Asignar eventos a los botones después de renderizar las películas
         assignFlipEvents();
