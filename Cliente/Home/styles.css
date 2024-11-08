@@ -1,0 +1,138 @@
+/* Fondo de la página */
+body {
+    font-family: Arial, sans-serif;
+    background: #1c1c1c no-repeat center center fixed;
+    background-size: cover;
+    color: #f8f9fa;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #0b0b0b;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.nav-link {
+    color: #f8f9fa !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ffcc00 !important; /* Un dorado tenue */
+}
+
+#login-button {
+    border-color: #ffcc00;
+    color: #ffcc00;
+}
+
+#login-button:hover {
+    background-color: #ffcc00;
+    color: #0b0b0b;
+}
+
+/* Encabezado del catálogo */
+.catalog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1c1c1c; /* Fondo oscuro */
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); /* Sombra */
+}
+
+.catalog-header h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffcc00; /* Color dorado para el título */
+    margin: 0;
+}
+
+.genre-filter-container {
+    display: flex;
+    align-items: center;
+}
+
+#genre-filter {
+    padding: 8px 12px;
+    font-size: 1rem;
+    background-color: #333;
+    color: #f8f9fa;
+    border: 1px solid #444;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+#genre-filter:hover {
+    border-color: #ffcc00; /* Borde dorado al pasar el mouse */
+}
+
+/* Contenedor de películas */
+#movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Estilos de tarjeta */
+.card {
+    background-color: #333;
+    border: 1px solid #444;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+.card-text {
+    color: #ccc;
+}
+
+.btn-primary {
+    background-color: #b22222;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #ff4c4c;
+}
+
+/* Ajuste de imagen */
+.card-img-top {
+    height: 400px;
+    object-fit: cover;
+    filter: brightness(0.9);
+}
+
+/* Responsividad */
+@media (max-width: 992px) {
+    .card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        width: 100%;
+    }
+}
+
+.navbar-logo {
+    height: 50px; /* Ajusta a un tamaño menor */
+    max-width: 100%;
+    object-fit: contain;
+}

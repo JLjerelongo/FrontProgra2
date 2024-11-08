@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Entradas</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Enlace a archivo CSS personalizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="/src/Diseño_sin_título__29_-removebg-preview.png" alt="Mi Logo" class="logo-img">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Catálogo</a>
+                </li>
+
+            </ul>
+            <!-- Botón de Iniciar sesión -->
+            <a href="/Login/login.html" class="btn btn-outline-primary ml-lg-3" id="login-button">Iniciar sesión</a>
+            <!-- Botón de Cerrar sesión -->
+            <button onclick="logout()" class="btn btn-secondary" id="logout-button" style="display: none;">Cerrar
+                Sesión</button>
+        </div>
+    </nav>
+
+    <div class="container mt-5" id="movie-details">
+        <!-- Los detalles de la película se cargarán aquí -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

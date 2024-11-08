@@ -1,0 +1,57 @@
+/* Fondo de la página */
+body {
+    font-family: Arial, sans-serif;
+    background: #1c1c1c no-repeat center center fixed;
+    background-size: cover;
+    color: #f8f9fa;
+}
+
+/* Estilo de la tarjeta de inicio de sesión */
+.login-card {
+    background-color: #2c2c2c; /* Fondo oscuro */
+    color: #f8f9fa;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Título de inicio de sesión */
+h2 {
+    color: #ffcc00; /* Dorado */
+}
+
+/* Campos del formulario */
+.form-control {
+    background-color: #333;
+    color: #f8f9fa;
+    border: 1px solid #444;
+    border-radius: 4px;
+}
+
+.form-control:focus {
+    border-color: #ffcc00; /* Borde dorado en foco */
+    box-shadow: none;
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #b22222;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #ff4c4c;
+}
+
+.btn-outline-secondary {
+    color: #ffcc00;
+    border-color: #ffcc00;
+    transition: all 0.3s;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #ffcc00;
+    color: #2c2c2c;
+}

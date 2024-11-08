@@ -1,0 +1,121 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    padding-top: 90px; /* Ajuste de espacio para el navbar fijo */
+}
+
+/* Navbar */
+.navbar {
+    background-color: #343a40;
+}
+
+.logo-img {
+    height: 40px;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #0056b3;
+    color: #ffffff !important;
+    border-radius: 4px;
+}
+
+.btn-outline-primary {
+    color: #ffffff;
+    border-color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Contenedor de detalles de la película */
+#movie-details {
+    margin-top: 20px; /* Espacio adicional debajo del navbar */
+}
+
+/* Cards */
+.card {
+    width: calc(33.333% - 20px);
+    min-height: 600px;
+    perspective: 1000px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+.card-inner.flip {
+    transform: rotateY(180deg);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #6c757d;
+    margin-bottom: auto;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 15px;
+}
+
+.btn-primary:hover {
+    background-color: #004080;
+    color: #ffffff;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 992px) {
+    .card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        width: 100%;
+    }
+}

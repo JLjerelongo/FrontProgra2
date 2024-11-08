@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,20 +14,23 @@
             width: 100%;
             overflow: hidden;
         }
+
         .card-img-top {
             width: 100%;
             height: auto;
         }
     </style>
 </head>
+
 <body>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <a class="navbar-brand" href="#">
-            <img src="/src/Diseño_sin_título__29_-removebg-preview.png" alt="Mi Logo" class="logo-img">
+            <img src="/src/Cine Cordoba-Photoroom.png" alt="Cine Córdoba Logo" class="navbar-logo">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -36,23 +40,31 @@
                     <a class="nav-link" href="#home">Catálogo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/CrearPeli/crearPeli.html">Crear Película</a>
+                    <a class="nav-link" href="/Admin/CrearPeli/crearPeli.html">Crear Película</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/EditarPeli/editarPeli.html">Editar Película</a>
+                    <a class="nav-link" href="/Admin/EditarPeli/editarPeli.html">Editar Película</a>
                 </li>
             </ul>
+            <!-- Botón de Iniciar sesión -->
+            <a href="/Login/login.html" class="btn btn-outline-primary ml-lg-3" id="login-button">Iniciar sesión</a>
+            <!-- Botón de Cerrar sesión -->
+            <button onclick="logout()" class="btn btn-secondary ml-3" id="logout-button">Cerrar Sesión</button>
+
         </div>
     </nav>
 
     <div class="spacer" style="height: 70px;"></div>
-
     <div class="container my-5">
-        <h2 class="text-center">Catálogo de Películas</h2>
-        <select id="genre-filter" class="custom-select mb-3">
-            <option value="">Todos los géneros</option>
-            <!-- Los géneros se llenarán dinámicamente -->
-        </select>
+        <div class="catalog-header">
+            <h2>Catálogo de Películas</h2>
+            <div class="genre-filter-container">
+                <select id="genre-filter" class="custom-select">
+                    <option value="">Todos los géneros</option>
+                    <!-- Los géneros se llenarán dinámicamente -->
+                </select>
+            </div>
+        </div>
         <div class="row" id="movie-container">
             <!-- Las películas se cargarán dinámicamente aquí -->
         </div>
@@ -65,4 +77,5 @@
     <!-- Enlace al archivo JavaScript externo -->
     <script src="script.js"></script>
 </body>
+
 </html>
