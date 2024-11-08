@@ -3,7 +3,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const movieId = urlParams.get('id');
 
 // Ruta para obtener la película por id
-const apiMovieUrl = `https://localhost:7220/api/Cine/peliculas2/${movieId}`;
+const apiMovieUrl = `https://localhost:7220/api/Cine/peliculas/${movieId}`;
 
 // Referencias a los elementos donde mostrar la información
 const movieDetails = document.getElementById('movie-details');

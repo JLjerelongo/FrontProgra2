@@ -1,6 +1,6 @@
 // Ruta base de tu API
 const apiURL = 'https://localhost:7220/api/Cine';
-const peliculasURL = `${apiURL}/peliculas2`;
+const peliculasURL = `${apiURL}/peliculas`;
 const postURL = `${apiURL}/peliculas`;
 const directoresURL = `${apiURL}/directores`;
 const paisesURL = `${apiURL}/paises`;

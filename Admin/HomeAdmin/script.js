@@ -1,5 +1,5 @@
 // Ruta base de tu API
-const apiURL = 'https://localhost:7220/api/Cine/peliculas2';
+const apiURL = 'https://localhost:7220/api/Cine/peliculas';
 const apiGeneros = 'https://localhost:7220/api/Cine/generos';
 
 // Referencias a elementos del DOM
