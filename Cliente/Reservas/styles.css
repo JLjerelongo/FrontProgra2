@@ -1,121 +1,136 @@
-/* Estilos generales */
+/* Fondo de la página */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    padding-top: 90px; /* Ajuste de espacio para el navbar fijo */
+    background-color: #1c1c1c; /* Color oscuro de fondo */
+    color: #f8f9fa; /* Texto claro */
 }
 
 /* Navbar */
 .navbar {
-    background-color: #343a40;
+    background-color: #0b0b0b; /* Fondo oscuro del navbar */
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
-.logo-img {
-    height: 40px;
+/* Ajuste de tamaño del logo en el navbar */
+.navbar-logo {
+    height: 50px; /* Ajusta a un tamaño menor */
+    max-width: 100%;
+    object-fit: contain;
 }
+
+
 
 .nav-link {
-    color: #ffffff !important;
-    transition: background-color 0.3s ease;
+    color: #f8f9fa !important;
+    transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-    background-color: #0056b3;
-    color: #ffffff !important;
+    color: #ffcc00 !important; /* Color dorado en hover */
     border-radius: 4px;
 }
 
-.btn-outline-primary {
-    color: #ffffff;
-    border-color: #ffffff;
-    transition: background-color 0.3s ease;
+/* Botón de Iniciar sesión */
+#login-button {
+    border-color: #ffcc00;
+    color: #ffcc00;
 }
 
-.btn-outline-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+#login-button:hover {
+    background-color: #ffcc00;
+    color: #0b0b0b;
 }
 
-/* Contenedor de detalles de la película */
-#movie-details {
-    margin-top: 20px; /* Espacio adicional debajo del navbar */
+/* Botón de Cerrar sesión */
+.btn-secondary {
+    color: #ffcc00;
+    border-color: #ffcc00;
 }
 
-/* Cards */
-.card {
-    width: calc(33.333% - 20px);
-    min-height: 600px;
-    perspective: 1000px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    transition: transform 0.2s;
+.btn-secondary:hover {
+    background-color: #ffcc00;
+    color: #0b0b0b;
 }
 
-.card:hover {
-    transform: translateY(-10px);
+/* Contenedor principal */
+.container {
+    background-color: #333; /* Fondo oscuro del contenedor */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6); /* Sombra */
+    margin-top: 80px; /* Espacio superior para el navbar */
+    max-width: 800px; /* Ancho máximo del contenedor */
 }
 
-.card-inner {
-    position: relative;
+/* Encabezado de los detalles de la película */
+#movie-details h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #ffcc00; /* Color dorado */
+    margin-bottom: 30px;
+}
+
+/* Detalles de la película */
+#movie-details p {
+    color: #ccc; /* Color de texto para los detalles */
+}
+
+/* Ajustes para el botón de reservación */
+.btn-primary {
+    background-color: #b22222; /* Color del botón de reservación */
+    border: none;
     width: 100%;
-    height: 100%;
-    transition: transform 0.6s;
-}
-
-.card-front, .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-}
-
-.card-back {
-    transform: rotateY(180deg);
-}
-
-.card-inner.flip {
-    transform: rotateY(180deg);
-}
-
-.card-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #343a40;
-}
-
-.card-text {
-    font-size: 0.95rem;
-    color: #6c757d;
-    margin-bottom: auto;
-}
-
-.card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    padding: 15px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
 }
 
 .btn-primary:hover {
-    background-color: #004080;
-    color: #ffffff;
+    background-color: #ff4c4c;
 }
 
-.card-img-top {
+.movie-info {
+    display: flex;
+    gap: 20px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.movie-details {
+    flex: 1;
+    color: #f8f9fa;
+}
+
+.movie-title {
+    font-size: 1.5rem;
+    color: #ffcc00;
+}
+
+.movie-image {
+    flex: 0 0 200px;
+}
+
+.poster-img {
     width: 100%;
     height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
 }
 
-/* Media Queries para responsividad */
-@media (max-width: 992px) {
-    .card {
-        width: calc(50% - 20px);
-    }
+/* Añade esto al CSS */
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ocupa toda la altura de la pantalla */
 }
 
-@media (max-width: 576px) {
-    .card {
-        width: 100%;
-    }
+.container {
+    background-color: #333; /* Fondo oscuro del contenedor */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6); /* Sombra */
+    max-width: 800px; /* Ancho máximo del contenedor */
 }
