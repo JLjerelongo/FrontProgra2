@@ -1,5 +1,5 @@
 const API_BASE = 'https://localhost:7220/api';
-const funcionId = 1; // ID de función que se selecciona desde el HTML de funciones
+const funcionId = localStorage.getItem("selectedFuncionId"); // Recuperar el id de la función seleccionada
 const apiButacasUrl = `${API_BASE}/Facturas/butacas-disponibles/${funcionId}`;
 const seatingArea = document.getElementById('seating-area');
 const counter = document.getElementById('counter');
@@ -7,11 +7,12 @@ const total = document.getElementById('total');
 let ticketPrice = 1500; // Precio por butaca
 let selectedSeats = [];
 
+console.log(selectedSeats);
+
 async function fetchButacas() {
     try {
         const response = await fetch(apiButacasUrl);
         if (!response.ok) throw new Error('Error al obtener las butacas');
-
         const butacas = await response.json();
         renderButacas(butacas);
     } catch (error) {
@@ -42,11 +43,17 @@ function renderButacas(butacas) {
             seatDiv.classList.add('seat');
 
             // Verificamos si la butaca existe y si está disponible o vendida
-            if (butacas[seatIndex] && !butacas[seatIndex].disponible) {
-                seatDiv.classList.add('sold');
-            } else if (butacas[seatIndex]) {
-                seatDiv.classList.add('available');
-                seatDiv.addEventListener('click', () => toggleSeatSelection(seatDiv, butacas[seatIndex]));
+            const butaca = butacas[seatIndex];
+            if (butaca) {
+                if (!butaca.disponible) {
+                    seatDiv.classList.add('sold');
+                } else {
+                    seatDiv.classList.add('available');
+                    seatDiv.addEventListener('click', () => toggleSeatSelection(seatDiv, butaca));
+                }
+            } else {
+                // Si la butaca está indefinida, agregar una clase para diferenciarla
+                seatDiv.classList.add('unavailable');
             }
 
             seatGroup.appendChild(seatDiv);
@@ -56,19 +63,25 @@ function renderButacas(butacas) {
         rowDiv.appendChild(seatGroup);
         seatingArea.appendChild(rowDiv);
     });
-}
+} 
 
 function toggleSeatSelection(seatDiv, butaca) {
-    if (seatDiv.classList.contains('selected')) {
-        // Si el asiento ya está seleccionado, lo deseleccionamos
-        seatDiv.classList.remove('selected');
-        selectedSeats = selectedSeats.filter(id => id !== butaca.idButaca);
-    } else {
-        // Seleccionamos el asiento
-        seatDiv.classList.add('selected');
-        selectedSeats.push(butaca.idButaca);
+    // Asegurarse de que la butaca tenga un ID antes de modificar la selección
+    if (butaca && 'idButaca' in butaca) {
+        if (seatDiv.classList.contains('selected')) {
+            seatDiv.classList.remove('selected');
+            // Eliminar el ID de selectedSeats
+            selectedSeats = selectedSeats.filter(id => id !== butaca.idButaca);
+        } else {
+            seatDiv.classList.add('selected');
+            // Agregar el ID a selectedSeats si no existe ya en el array
+            if (!selectedSeats.includes(butaca.idButaca)) {
+                selectedSeats.push(butaca.idButaca);
+            }
+        }
+        updateSelectedCount();
+        console.log("Selected Seats:", selectedSeats); // Verificar los IDs de asientos seleccionados
     }
-    updateSelectedCount(); // Actualizamos el contador y el total
 }
 
 function updateSelectedCount() {
@@ -77,6 +90,7 @@ function updateSelectedCount() {
     total.innerText = selectedSeatsCount * ticketPrice;
 }
 
+// Llamar a fetchButacas cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', fetchButacas);
 
 // Función de cierre de sesión

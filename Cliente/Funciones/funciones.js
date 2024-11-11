@@ -115,6 +115,7 @@ function renderFuncionHorarios(container, funciones) {
             botonHorario.textContent = funcion.hora.slice(0, 5);
 
             botonHorario.addEventListener('click', () => {
+                localStorage.setItem("selectedFuncionId", funcion.idFuncion); // Guardar el id de la función
                 window.location.href = `/Cliente/Funciones/Butacas/butacas.html`;
             });
 
