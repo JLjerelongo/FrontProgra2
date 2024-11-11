@@ -41,7 +41,7 @@ async function fetchMovieDetails() {
                     <p><strong>Clasificación:</strong> ${movie.clasificacion}</p>
                     <p><strong>Estado:</strong> ${movie.estado}</p>
                     <p><strong>Géneros:</strong> ${movie.generos.join(', ')}</p>
-                    <button id="reserve-button" class="btn btn-success">Reservar entrada</button>
+                    <button id="funcion-button" class="btn btn-success">Funciones</button>
                 </div>
                 <div class="movie-image">
                     <img src="${movieImage}" alt="Poster de ${movie.tituloPelicula}" class="poster-img">
@@ -50,8 +50,11 @@ async function fetchMovieDetails() {
         `;
 
         // Agregar la funcionalidad al botón de reserva
-        document.getElementById('reserve-button').addEventListener('click', () => {
-            alert('Reserva realizada con éxito');
+        document.getElementById('funcion-button').addEventListener('click', () => {
+            // Guarda el ID de la película en localStorage
+            localStorage.setItem("selectedMovieId", movie.idPelicula);
+            // Redirige a la página de funciones
+            window.location.href = "/Cliente/Funciones/funciones.html"; 
         });
     } catch (error) {
         console.error('Error al obtener los detalles de la película:', error);
@@ -78,5 +81,4 @@ function checkLoginStatus() {
 
 // Verificar el estado de login al cargar la página
 document.addEventListener('DOMContentLoaded', checkLoginStatus);
-
 
