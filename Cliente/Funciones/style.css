@@ -110,3 +110,19 @@ body {
 .horario-btn:hover {
     background-color: #ff6b6b;
 }
+
+/* Botón de Volver Atrás */
+.btn-back {
+    background-color: #555;
+    color: #f8f9fa;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    width: 25%; /* Ajusta el ancho para que ambos botones tengan el mismo tamaño */
+}
+
+.btn-back:hover {
+    background-color: #777;
+}

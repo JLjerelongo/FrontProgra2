@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagar Entradas</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="pago.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="/src/Cine Cordoba-Photoroom.png" alt="Cine Córdoba Logo" class="navbar-logo">
+        </a>
+    </nav>
+
+    <div class="container my-5">
+        <h2>Información de Pago</h2>
+
+        <form id="payment-form">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre del Titular</label>
+                <input type="text" class="form-control" id="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="dni">DNI del Titular</label>
+                <input type="text" class="form-control" id="dni" required>
+            </div>
+            <div class="form-group">
+                <label for="numero-tarjeta">Número de Tarjeta</label>
+                <input type="text" class="form-control" id="numero-tarjeta" maxlength="16" required>
+            </div>
+            <div class="form-group">
+                <label for="codigo-seguridad">Código de Seguridad</label>
+                <input type="password" class="form-control" id="codigo-seguridad" maxlength="3" required>
+            </div>
+            <div class="form-group">
+                <label for="fecha-vencimiento">Fecha de Vencimiento</label>
+                <div class="row">
+                    <div class="col">
+                        <select class="form-control" id="mes-vencimiento" required>
+                            <option value="">Mes</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <!-- Agregar más opciones hasta el 12 -->
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select class="form-control" id="año-vencimiento" required>
+                            <option value="">Año</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <!-- Agregar más opciones según sea necesario -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="medio-pago">Medio de Pago</label>
+                <select class="form-control" id="medio-pago" required>
+                    <option value="">Seleccione uno</option>
+                    <option value="Visa">Visa</option>
+                    <option value="MasterCard">MasterCard</option>
+                    <option value="Amex">Amex</option>
+                    <!-- Agregar más opciones si es necesario -->
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Confirmar Pago</button>
+        </form>
+
+        <!-- Botón de Volver Atrás -->
+        <button onclick="window.history.back()" class="btn-back">Volver atrás</button>
+        <!-- Resumen de compra -->
+        <div id="resumen-compra" class="mt-4">
+            <h3>Resumen de Compra</h3>
+            <p><strong>Asientos Seleccionados:</strong> <span id="asientos"></span></p>
+            <p><strong>Total a Pagar:</strong> $<span id="total"></span></p>
+        </div>
+    </div>
+
+    <script src="pago.js"></script>
+</body>
+
+</html>

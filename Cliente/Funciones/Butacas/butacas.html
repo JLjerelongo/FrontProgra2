@@ -66,8 +66,12 @@
     <p class="text">
         Has seleccionado <span id="counter">0</span> asientos. Saldrá $<span id="total">0</span> en total
     </p>
-
-    <button class="btn-go-back" onclick="window.location.href='/Cliente/Funciones/funciones.html'">Volver a la transacción</button>
+    
+    <div class="button-container">
+        <button class="btn-back" onclick="window.location.href='/Cliente/Funciones/funciones.html'">Volver Atrás</button>
+        <button class="btn-proceed" onclick="irAlPago()">Proceder al Pago</button>
+    </div>
+    
 
     <script src="butacas.js"></script>
 </body>

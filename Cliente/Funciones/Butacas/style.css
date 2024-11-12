@@ -155,14 +155,18 @@ body {
     background-color: lightgray;
 }
 
+/* Estilos para la pantalla de cine */
 .screen {
     background-color: #ffffff;
-    height: 50px;
-    width: 80%;
-    margin: 15px 0;
+    height: 50px; /* Reduce la altura para que sea más estrecha */
+    width: 50%; /* Reduce el ancho para simular una pantalla */
+    margin: 20px auto; /* Centrar la pantalla */
     transform: rotateX(-48deg);
     box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+    border-radius: 4px; /* Bordes redondeados */
+    border: 2px solid #444; /* Borde oscuro para simular la estructura de la pantalla */
 }
+
 
 /* Text below seating area */
 p.text {
@@ -173,3 +177,45 @@ p.text {
 p.text span {
     color: green;
 }
+
+/* Contenedor flexible para los botones */
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+    padding: 0 20px;
+}
+
+/* Botón de Volver Atrás */
+.btn-back {
+    background-color: #555;
+    color: #f8f9fa;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    width: 25%; /* Ajusta el ancho para que ambos botones tengan el mismo tamaño */
+}
+
+.btn-back:hover {
+    background-color: #777;
+}
+
+/* Botón de Proceder al Pago */
+.btn-proceed {
+    background-color: #b22222;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    width: 25%; /* Ajusta el ancho para que ambos botones tengan el mismo tamaño */
+}
+
+.btn-proceed:hover {
+    background-color: #ff4c4c;
+}
+
