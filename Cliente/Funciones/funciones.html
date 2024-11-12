@@ -4,16 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservar Entradas</title>
+    <title>Funciones</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Enlace a archivo CSS personalizado -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/Cliente/Funciones/style.css">
 </head>
 
 <body>
-
-    <!-- Navbar --> 
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <a class="navbar-brand" href="#">
             <img src="/src/Cine Cordoba-Photoroom.png" alt="Cine Córdoba Logo" class="navbar-logo">
@@ -28,23 +27,40 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/Cliente/Home/index.html">Catálogo</a>
                 </li>
-
             </ul>
             <!-- Botón de Iniciar sesión -->
             <a href="/Login/login.html" class="btn btn-outline-primary ml-lg-3" id="login-button">Iniciar sesión</a>
             <!-- Botón de Cerrar sesión -->
-            <button onclick="logout()" class="btn btn-secondary" id="logout-button" style="display: none;">Cerrar
-                Sesión</button>
+            <button onclick="logout()" class="btn btn-secondary" id="logout-button" style="display: none;">Cerrar Sesión</button>
         </div>
     </nav>
 
-    <div class="main-container">
-        <div class="container mt-5" id="movie-details">
-            <!-- Los detalles de la película se cargarán aquí -->
+    <div class="spacer" style="height: 70px;"></div>
+    
+    <div class="container my-5">
+        <div class="catalog-header">
+            <h2>Funciones</h2>
+            <div class="fecha-btn-container" id="fecha-btn-container">
+                <label for="peliculaSelect">Película:</label>
+                <select id="peliculaSelect">
+                    <option value="">Seleccione una película</option>
+                    <!-- Contenedor de botones de fechas -->
+
+                </select>
+            </div>
+            
+        </div>
+
+        <div class="fecha-btn-container" id="fecha-btn-container">
+            <!-- El select de fechas se cargará dinámicamente aquí -->
+        </div>
+        
+        <div class="funciones-container" id="funciones-container">
+            <!-- Los horarios de las funciones se cargarán dinámicamente aquí según la fecha seleccionada -->
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="funciones.js"></script>
 </body>
 
 </html>

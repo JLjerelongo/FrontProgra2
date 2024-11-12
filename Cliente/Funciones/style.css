@@ -1,0 +1,112 @@
+/* Fondo de la página */
+body {
+    font-family: Arial, sans-serif;
+    background: #1c1c1c no-repeat center center fixed;
+    background-size: cover;
+    color: #f8f9fa;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #0b0b0b;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.nav-link {
+    color: #f8f9fa !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ffcc00 !important; /* Un dorado tenue */
+}
+
+#login-button {
+    border-color: #ffcc00;
+    color: #ffcc00;
+}
+
+#login-button:hover {
+    background-color: #ffcc00;
+    color: #0b0b0b;
+}
+
+/* Encabezado del catálogo */
+.catalog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1c1c1c; /* Fondo oscuro */
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); /* Sombra */
+}
+
+.catalog-header h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffcc00; /* Color dorado para el título */
+    margin: 0;
+}
+
+.navbar-logo {
+    height: 50px; /* Ajusta a un tamaño menor */
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.card {
+    width: 100%;
+    overflow: hidden;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+}
+
+.fecha-btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.fecha-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+.fecha-btn.active {
+    background-color: #ff6b6b;
+}
+
+.funciones-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.tipo {
+    margin-bottom: 10px;
+}
+
+.horario-btn {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.horario-btn:hover {
+    background-color: #ff6b6b;
+}

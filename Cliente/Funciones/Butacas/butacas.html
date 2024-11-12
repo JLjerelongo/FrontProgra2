@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservar Entradas</title>
+    <title>Butacas</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Enlace a archivo CSS personalizado -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/Cliente/Funciones/Butacas/style.css">
 </head>
-
 <body>
-
-    <!-- Navbar --> 
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <a class="navbar-brand" href="#">
             <img src="/src/Cine Cordoba-Photoroom.png" alt="Cine Córdoba Logo" class="navbar-logo">
@@ -28,23 +25,50 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/Cliente/Home/index.html">Catálogo</a>
                 </li>
-
             </ul>
             <!-- Botón de Iniciar sesión -->
             <a href="/Login/login.html" class="btn btn-outline-primary ml-lg-3" id="login-button">Iniciar sesión</a>
             <!-- Botón de Cerrar sesión -->
-            <button onclick="logout()" class="btn btn-secondary" id="logout-button" style="display: none;">Cerrar
-                Sesión</button>
+            <button onclick="logout()" class="btn btn-secondary" id="logout-button" style="display: none;">Cerrar Sesión</button>
         </div>
     </nav>
 
-    <div class="main-container">
-        <div class="container mt-5" id="movie-details">
-            <!-- Los detalles de la película se cargarán aquí -->
+    <div class="spacer" style="height: 70px;"></div>
+
+    <div class="container my-5">
+        <div class="catalog-header">
+            <h2>Seleccione su Butaca</h2>            
         </div>
     </div>
 
-    <script src="script.js"></script>
-</body>
+    <ul class="showcase">
+        <li>
+            <div class="seat available"></div>
+            <small>Disponible</small>
+        </li>
+        <li>
+            <div class="seat selected"></div>
+            <small>Seleccionado</small>
+        </li>
+        <li>
+            <div class="seat sold"></div>
+            <small>Vendido</small>
+        </li>
+    </ul>
 
+    <div class="container">
+        <div class="screen"></div>
+        <div id="seating-area">
+            <!-- Aquí se cargarán dinámicamente las butacas -->
+        </div>
+    </div>
+
+    <p class="text">
+        Has seleccionado <span id="counter">0</span> asientos. Saldrá $<span id="total">0</span> en total
+    </p>
+
+    <button class="btn-go-back" onclick="window.location.href='/Cliente/Funciones/funciones.html'">Volver a la transacción</button>
+
+    <script src="butacas.js"></script>
+</body>
 </html>
