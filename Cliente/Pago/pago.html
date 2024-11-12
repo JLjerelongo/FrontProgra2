@@ -10,11 +10,30 @@
 </head>
 
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <a class="navbar-brand" href="#">
             <img src="/src/Cine Cordoba-Photoroom.png" alt="Cine Córdoba Logo" class="navbar-logo">
         </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Cliente/Home/index.html">Catálogo</a>
+                </li>
+            </ul>
+            <!-- Botón de Iniciar sesión -->
+            <a href="/Login/login.html" class="btn btn-outline-primary ml-lg-3" id="login-button">Iniciar sesión</a>
+            <!-- Botón de Cerrar sesión -->
+            <button onclick="logout()" class="btn btn-secondary" id="logout-button" style="display: none;">Cerrar Sesión</button>
+        </div>
     </nav>
+
+    <div class="spacer" style="height: 70px;"></div>
 
     <div class="container my-5">
         <h2>Información de Pago</h2>
@@ -22,7 +41,7 @@
         <form id="payment-form">
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" required>
+                <input type="email" class="form-control" id="email" required readonly>
             </div>
             <div class="form-group">
                 <label for="nombre">Nombre del Titular</label>
@@ -49,7 +68,15 @@
                             <option value="01">01</option>
                             <option value="02">02</option>
                             <option value="03">03</option>
-                            <!-- Agregar más opciones hasta el 12 -->
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
                         </select>
                     </div>
                     <div class="col">
@@ -57,7 +84,19 @@
                             <option value="">Año</option>
                             <option value="2024">2024</option>
                             <option value="2025">2025</option>
-                            <!-- Agregar más opciones según sea necesario -->
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
+                            <option value="2031">2031</option>
+                            <option value="2032">2032</option>
+                            <option value="2033">2033</option>
+                            <option value="2034">2034</option>
+                            <option value="2035">2035</option>
+                            <option value="2036">2036</option>
+                            <option value="2037">2037</option>
+                            <option value="2038">2038</option>
                         </select>
                     </div>
                 </div>
@@ -81,9 +120,16 @@
         <!-- Resumen de compra -->
         <div id="resumen-compra" class="mt-4">
             <h3>Resumen de Compra</h3>
+            <p><strong>Película:</strong> <span id="pelicula"></span></p>
+            <p><strong>Sala:</strong> <span id="sala"></span></p>
+            <p><strong>Fecha:</strong> <span id="fecha"></span></p>
+            <p><strong>Horario:</strong> <span id="horario"></span></p>
+            <p><strong>Tipo:</strong> <span id="tipo"></span></p>
             <p><strong>Asientos Seleccionados:</strong> <span id="asientos"></span></p>
+            <p><strong>Butacas:</strong> <span id="butacas"></span></p>
             <p><strong>Total a Pagar:</strong> $<span id="total"></span></p>
         </div>
+        
     </div>
 
     <script src="pago.js"></script>

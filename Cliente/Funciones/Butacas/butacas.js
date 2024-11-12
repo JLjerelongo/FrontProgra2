@@ -112,6 +112,7 @@ function irAlPago() {
     const cantidadAsientos = document.getElementById('counter').textContent;
     const total = document.getElementById('total').textContent;
     
+    localStorage.setItem("selectedSeats", JSON.stringify(selectedSeats));
     // Redirigir a la página de pago y pasar los datos seleccionados como parámetros en la URL
     window.location.href = `/Cliente/Pago/pago.html?asientos=${cantidadAsientos}&total=${total}`;
 }
