@@ -8,14 +8,33 @@ body {
 /* Navbar */
 .navbar {
     background-color: #0b0b0b;
-    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
+.nav-link {
+    color: #f8f9fa !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ffcc00 !important; /* Un dorado tenue */
+}
+
+#login-button {
+    border-color: #ffcc00;
+    color: #ffcc00;
+}
+#login-button:hover {
+    background-color: #ffcc00;
+    color: #0b0b0b;
+}
 .navbar-logo {
-    height: 50px;
+    height: 50px; /* Ajusta a un tamaño menor */
     max-width: 100%;
     object-fit: contain;
 }
+
 
 /* Contenedor principal */
 .container {
@@ -51,9 +70,17 @@ h2 {
     transition: border-color 0.3s;
 }
 
+
 .form-control:focus {
     border-color: #ffcc00;
     box-shadow: none;
+}
+
+/* Solo aplica al campo de email */
+#email {
+    background-color: #222; 
+    color: #f8f9fa; 
+    border: 1px solid #444; 
 }
 
 /* Botón de Confirmar Pago */

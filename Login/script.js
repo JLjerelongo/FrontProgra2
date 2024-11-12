@@ -4,7 +4,6 @@ async function login(event) {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
-    // Log de los datos que se van a enviar en el POST
     console.log("Datos de inicio de sesión enviados:", { username, password });
 
     try {
@@ -23,7 +22,7 @@ async function login(event) {
         if (response.ok && result.success) {
             // Guarda el rol y el nombre de usuario en localStorage
             localStorage.setItem("userRole", result.role);
-            localStorage.setItem("username", result.username);
+            localStorage.setItem("username", username); // Guardar el username para uso futuro
 
             alert("Inicio de sesión exitoso");
 
@@ -51,7 +50,7 @@ function logout() {
     localStorage.removeItem("username");
 
     // Redirige a la página de inicio de sesión
-    window.location.href = "/Login/login.html"; // Cambia la ruta según la ubicación de tu página de login
+    window.location.href = "/Login/login.html";
 }
 
 // Verificar sesión solo si no estamos en la página de login
@@ -61,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Verifica si hay una sesión activa y si el usuario está en una página protegida
     if (!userRole && currentPath !== "/Login/login.html") {
-        // Si no hay sesión y no estamos en el login, redirige al login
-        window.location.href = "/Login/login.html"; // Cambia la ruta según la ubicación de tu página de login
+        window.location.href = "/Login/login.html";
     }
 });
