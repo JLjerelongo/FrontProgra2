@@ -24,8 +24,8 @@ async function loadGenres() {
 
         genres.forEach(genre => {
             const option = document.createElement('option');
-            option.value = genre.idGenero;  // Usar idGenero como valor
-            option.textContent = genre.descripcion;  // Usar descripcion como texto
+            option.value = genre.idGenero;
+            option.textContent = genre.descripcion;
             genreFilter.appendChild(option);
         });
     } catch (error) {
@@ -33,42 +33,16 @@ async function loadGenres() {
     }
 }
 
+// Función para obtener las películas y mostrar solo las que no están en estado "Retirada"
 async function fetchMovies() {
     try {
         const response = await fetch(apiURL);
         const movies = await response.json();
 
-        console.log(movies);
-        movieContainer.innerHTML = '';
+        // Filtrar películas cuyo estado sea distinto de "Retirada"
+        const filteredMovies = movies.filter(movie => movie.estado !== "Retirada");
 
-        movies.forEach(movie => {
-            const movieImage = images[movie.tituloPelicula] || "https://via.placeholder.com/300x400";
-            const generos = movie.generos ? movie.generos.join(", ") : "Sin género";
-
-            const movieCard = `
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="${movieImage}" class="card-img-top" alt="${movie.tituloPelicula}">
-                        <div class="card-body">
-                            <h5 class="card-title">${movie.tituloPelicula}</h5>
-                            <p class="card-text">
-                                <strong>Director:</strong> ${movie.director}<br>
-                            </p>
-                            <button class="btn btn-primary reservar" data-id="${movie.idPelicula}">Reservar</button>
-                        </div>
-                    </div>
-                </div>
-            `;
-            movieContainer.innerHTML += movieCard;
-        });
-
-        // Agregar los event listeners después de que las películas hayan sido renderizadas
-        document.querySelectorAll('.reservar').forEach(button => {
-            button.addEventListener('click', (event) => {
-                const movieId = event.target.getAttribute('data-id');  // Obtener el id de la película
-                window.location.href = `/CLIENTE/reservas/reservas.html?id=${movieId}`;  // Redirigir a reservas.html con el id de la película
-            });
-        });
+        displayMovies(filteredMovies);
     } catch (error) {
         console.error('Error al obtener las películas:', error);
     }
@@ -76,23 +50,24 @@ async function fetchMovies() {
 
 // Filtrar películas según género seleccionado
 async function filterMoviesByGenre() {
-    const selectedGenreId = genreFilter.value; // Obtenemos el id del género seleccionado
+    const selectedGenreId = genreFilter.value;
 
     try {
-        const response = await fetch(apiURL); // Ruta para obtener todas las películas
+        const response = await fetch(apiURL);
         const movies = await response.json();
 
-        // Cargar los géneros para poder comparar con su descripción
+        // Filtrar películas cuyo estado sea distinto de "Retirada"
+        const moviesFilteredByState = movies.filter(movie => movie.estado !== "Retirada");
+
         const genreResponse = await fetch(apiGeneros);
         const genres = await genreResponse.json();
 
-        // Encontrar la descripción del género seleccionado usando su id
         const selectedGenre = genres.find(genre => genre.idGenero == selectedGenreId)?.descripcion;
 
-        // Si se selecciona un género, filtrar películas; si no, mostrar todas
+        // Si se selecciona un género, filtrar películas; si no, mostrar todas las que no estén retiradas
         const filteredMovies = selectedGenre
-            ? movies.filter(movie => movie.generos.includes(selectedGenre))  // Compara con el nombre del género
-            : movies;
+            ? moviesFilteredByState.filter(movie => movie.generos.includes(selectedGenre))
+            : moviesFilteredByState;
 
         displayMovies(filteredMovies);
     } catch (error) {
@@ -102,36 +77,35 @@ async function filterMoviesByGenre() {
 
 // Mostrar películas
 function displayMovies(movies) {
-    movieContainer.innerHTML = ''; // Limpiar el contenedor
+    movieContainer.innerHTML = '';
 
     movies.forEach(movie => {
         const movieImage = images[movie.tituloPelicula] || "https://via.placeholder.com/300x400";
         const generos = movie.generos ? movie.generos.join(", ") : "Sin género";
 
         const movieCard = `
-    <div class="col-md-4 mb-4">
-        <div class="card">
-            <img src="${movieImage}" class="card-img-top" alt="${movie.tituloPelicula}">
-            <div class="card-body">
-                <h5 class="card-title">${movie.tituloPelicula}</h5>
-                <p class="card-text">
-                    <strong>Director:</strong> ${movie.director}<br>
-                </p>
-                <!-- Botón de reservar con data-id -->
-                <button class="btn btn-primary reservar" data-id="${movie.idPelicula}">Reservar</button>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="${movieImage}" class="card-img-top" alt="${movie.tituloPelicula}">
+                    <div class="card-body">
+                        <h5 class="card-title">${movie.tituloPelicula}</h5>
+                        <p class="card-text">
+                            <strong>Director:</strong> ${movie.director}<br>
+                            <strong>Géneros:</strong> ${generos}
+                        </p>
+                        <button class="btn btn-primary reservar" data-id="${movie.idPelicula}">Reservar</button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-`;
-
+        `;
         movieContainer.innerHTML += movieCard;
     });
 
-    // Agregar los event listeners después de que las películas hayan sido renderizadas
+    // Agregar event listeners para los botones de "Reservar"
     document.querySelectorAll('.reservar').forEach(button => {
         button.addEventListener('click', (event) => {
-            const movieId = event.target.getAttribute('data-id');  // Obtener el id de la película
-            window.location.href = `/CLIENTE/reservas/reservas.html?id=${movieId}`;  // Redirigir a reservas.html con el id de la película
+            const movieId = event.target.getAttribute('data-id');
+            window.location.href = `/CLIENTE/reservas/reservas.html?id=${movieId}`;
         });
     });
 }
@@ -144,16 +118,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 genreFilter.addEventListener('change', filterMoviesByGenre);
 
-
-
 // Función de cierre de sesión
 function logout() {
-    // Elimina los datos de sesión de localStorage
     localStorage.removeItem("userRole");
     localStorage.removeItem("username");
-
-    // Redirige a la página de inicio de sesión
-    window.location.href = "/Login/login.html"; // Cambia la ruta según la ubicación de tu página de login
+    window.location.href = "/Login/login.html";
 }
 
 // Verificar si el usuario ha iniciado sesión
@@ -161,11 +130,9 @@ function checkLoginStatus() {
     const userRole = localStorage.getItem("userRole");
 
     if (userRole) {
-        // Si hay un rol en localStorage, significa que el usuario está autenticado
-        document.getElementById("login-button").style.display = "none"; // Oculta el botón de iniciar sesión
-        document.getElementById("logout-button").style.display = "inline-block"; // Muestra el botón de cerrar sesión
+        document.getElementById("login-button").style.display = "none";
+        document.getElementById("logout-button").style.display = "inline-block";
     } else {
-        // Si no hay sesión activa, oculta el botón de cerrar sesión y muestra el de iniciar sesión
         document.getElementById("login-button").style.display = "inline-block";
         document.getElementById("logout-button").style.display = "none";
     }
@@ -174,8 +141,8 @@ function checkLoginStatus() {
 // Ejecuta la verificación de sesión cuando la página se carga
 document.addEventListener("DOMContentLoaded", () => {
     checkLoginStatus();
-    loadGenres(); // Cargar géneros al iniciar la página
-    fetchMovies(); // Cargar películas al iniciar la página
+    loadGenres();
+    fetchMovies();
 });
 
 genreFilter.addEventListener('change', filterMoviesByGenre);
